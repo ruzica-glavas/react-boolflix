@@ -3,10 +3,10 @@ import axios from "axios"
 
 const GlobalContext = createContext();
 
-const GlobalProvider = ({childern}) => {
+const GlobalProvider = ({children}) => {
 
     //Chiamata Api per i film
-    const [movies, setMovies] = useState ();
+    const [movies, setMovies] = useState ([]);
 
     //Creazione variabili per l'endpoint e l'API key
     const url = import.meta.env.API_MOVIES_URL;
@@ -14,7 +14,7 @@ const GlobalProvider = ({childern}) => {
 
     const fetchMovies =() =>{
         axios
-        .get (url/keyUrl)
+        .get (`${url}?api_key=${keyUrl}`)
         .then ((res => setMovies (res.data)));
     }
 
@@ -26,7 +26,7 @@ const GlobalProvider = ({childern}) => {
 
     return (
         <GlobalContext.Provider value={value}>
-            {childern}
+            {children}
         </GlobalContext.Provider>
     )
 }
