@@ -9,8 +9,8 @@ const GlobalProvider = ({children}) => {
     const [movies, setMovies] = useState ([]);
 
     //Creazione variabili per l'endpoint e l'API key
-    const url = import.meta.env.API_MOVIES_URL;
-    const keyUrl = import.meta.env.API_KEY;
+    const url = import.meta.env.VITE_API_MOVIES_URL;
+    const keyUrl = import.meta.env.VITE_API_KEY ;
 
     const fetchMovies =() =>{
         axios

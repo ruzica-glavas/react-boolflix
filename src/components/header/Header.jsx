@@ -1,6 +1,14 @@
 import {useGlobalContext} from "../../contexts/GlobalContext"
+import {useState} from "react"
 const Header = () => {
 
+    const [searchMovie, setSearchMovie] = useState("")
+    const fetchMovies = useGlobalContext ();
+
+    const handleSearch = (event) =>{
+        event.preventDefault ();
+        fetchMovies (searchMovie)
+    }
    
     return(
         <>
@@ -13,8 +21,15 @@ const Header = () => {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
+                <form class="d-flex" role="search" onSubmit={handleSearch}>
+                    <input 
+                    class="form-control me-2" 
+                    type="search" 
+                    placeholder="Search" 
+                    aria-label="Search"
+                    onChange={(event)=>setSearchMovie(event.target.value)}>
+                        
+                    </input>
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
