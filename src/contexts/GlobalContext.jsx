@@ -5,6 +5,8 @@ const GlobalContext = createContext();
 
 const GlobalProvider = ({children}) => {
 
+    
+
     //Chiamata Api per i film
     const [movies, setMovies] = useState ([]);
 
