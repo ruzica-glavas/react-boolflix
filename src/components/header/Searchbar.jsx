@@ -1,16 +1,12 @@
 import {useGlobalContext} from "../../contexts/GlobalContext"
-import {useState} from "react"
+
 
 const Searchbar = () =>{
 
-    const [query, setQuery] = useState("")
-    const fetchMovies = useGlobalContext ();
+    const {query, setQuery, HandleSubmit} = useGlobalContext ()
+    
 
-    const handleSubmit = (event) =>{
-        event.preventDefault ();
-        fetchMovies (query)
-    }
-   
+    
 
     return(
         <>
@@ -23,7 +19,7 @@ const Searchbar = () =>{
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     </ul>
-                    <form className="d-flex" role="search" onSubmit={event =>handleSubmit (event)}>
+                    <form className="d-flex" role="search" onSubmit={event =>HandleSubmit (event)}>
                         <input 
                         className="form-control me-2" 
                         type="search" 

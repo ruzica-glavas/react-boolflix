@@ -5,25 +5,37 @@ const GlobalContext = createContext();
 
 const GlobalProvider = ({children}) => {
 
-    
-
-    //Chiamata Api per i film
-    const [movies, setMovies] = useState ([]);
+    const [query, setQuery] = useState("");
+    const [movies, setMovies]= useState ([]);
+    const [tvs, setTvs] = useState ([]);
 
     //Creazione variabili per l'endpoint e l'API key
     const url = import.meta.env.VITE_API_MOVIES_URL;
     const keyUrl = import.meta.env.VITE_API_KEY ;
 
-    const fetchMovies =() =>{
+    const HandleSubmit = (event) =>{
+        event.preventDefault ();
         axios
-        .get (`${url}?api_key=${keyUrl}`)
-        .then ((res => setMovies (res.data)));
+        .get (`${url}movie?api_key=${keyUrl}&query=${query}`)
+        .then (res=> setMovies(res.data.results))
+        .catch((err)=> console.error(err))
+
+        axios
+        .get (`${url}tv?api_key=${keyUrl}&query=${query}`)
+        .then (res=> setTvs(res.data.results))
+        .catch((err)=> console.error(err))
     }
+
 
     //destracturing per il value
     const value ={
+        query,
+        setQuery,
+        HandleSubmit,
         movies,
-        fetchMovies,
+        tvs,
+        setTvs
+        
     }
 
     return (
