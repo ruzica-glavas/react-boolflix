@@ -7,6 +7,11 @@ const Main = () => {
 
     const {movies, tvs} = useGlobalContext()
 
+    const imgUrl = "https://image.tmdb.org/t/p/";
+    const imgSize = "w45";
+    
+
+
     const HandleStars = (vote) => Math.ceil (vote/2)
 
     const HandleFlag = {
@@ -33,6 +38,9 @@ const Main = () => {
                     movies.map (element => {
                         return(
                             <li key={element.id}>{element.title}
+                            <img
+                            src={`${imgUrl}${imgSize}${element.poster_path}`}>   
+                            </img>
                             -Original tilte:{element.original_title}
                             -lingua: <ReactCountryFlag 
                             countryCode= {HandleFlag[element.original_language]}
