@@ -1,10 +1,29 @@
 import {useGlobalContext} from "../../contexts/GlobalContext"
+import ReactCountryFlag from "react-country-flag"
+
+
+
 const Main = () => {
 
     const {movies, tvs} = useGlobalContext()
 
     const HandleStars = (vote) => Math.ceil (vote/2)
 
+    const HandleFlag = {
+        
+            en: "GB",
+            it: "IT",
+            fr: "FR",
+            pt: "PT",
+            de: "DE",
+            es: "ES",
+            zh: "ZH",
+            ja: "JP",
+            ru: "RU",
+            ko: "KR"
+        
+    }
+    
     return (
         <>
         <main>
@@ -15,7 +34,9 @@ const Main = () => {
                         return(
                             <li key={element.id}>{element.title}
                             -Original tilte:{element.original_title}
-                            -lingua: {element.original_language}
+                            -lingua: <ReactCountryFlag 
+                            countryCode= {HandleFlag[element.original_language]}
+                            svg />
                             -voto: {HandleStars(parseInt(element.vote_average))}
                             </li>
                             
@@ -32,7 +53,10 @@ const Main = () => {
                             <li key={element.id}>
                                 {element.name}
                                 -Original tilte: {element.original_name}
-                                -lingua: {element.original_language}
+                                -lingua: 
+                                <ReactCountryFlag 
+                                countryCode= {HandleFlag[element.original_language]}
+                                svg/>
                                 -voto: {HandleStars(parseInt(element.vote_average))}
                                 </li>
                         )

@@ -24,8 +24,9 @@ const GlobalProvider = ({children}) => {
         .get (`${url}tv?api_key=${keyUrl}&query=${query}`)
         .then (res=> setTvs(res.data.results))
         .catch((err)=> console.error(err))
+       
     }
-
+    console.log(movies, tvs)
 
     //destracturing per il value
     const value ={
