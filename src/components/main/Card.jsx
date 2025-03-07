@@ -1,7 +1,7 @@
 import {GB, IT, JP, ES, FR ,RO} from "country-flag-icons/react/3x2";
 import {FaStar, FaRegStar} from "react-icons/fa";
 
-const Card = (data, type) =>{
+const Card = ({data, type}) =>{
     const title = type===`movies` ? data.title : data.name //a dipendeza se é una serie tv o un film nell'API cambia nome
     const originalTitle = type === `movies` ? data.original_title : data.original_name //stessa cosa della varibile di sopra
 
