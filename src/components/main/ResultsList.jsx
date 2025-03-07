@@ -4,11 +4,11 @@ const ResultsList = ({type, items}) =>{
     return(
         <>
         <section>
-            <p>Risultati trovati: {items.lenght}</p>
+            <p>Risultati trovati: {items. length}</p>
 
-            <ul>
+            <ul className="results-flex">
                 {
-                    items && items.lenght > 0 ?(
+                    items && items. length > 0 ?(
                         items.map(item => <Card key={item.id} data= {item} type={type} />) //props
                     ):(
                         <p>Nessun risultato disponibile</p>

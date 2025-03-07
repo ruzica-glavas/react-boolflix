@@ -42,13 +42,13 @@ const Card = ({data, type}) =>{
 
     return(
         <>
-        <li>
-            <img src={`https://image.tmdb.org/t/p/w342${data.poster_path}`} alt={`${title}`}></img>
-            <div>
+        <li className="card">
+            <img src={`https://image.tmdb.org/t/p/w342${data.poster_path}`} alt={`${title}`} className="poster"></img>
+            <div className="card-content">
                 <h3>{title}</h3>
                 <p>Original: {originalTitle}</p>
                 <p>Lingua: {renderLanguage (data.original_language)}</p>
-                <p>Voto: <span>{renderVote (data.vote_average)}</span></p>
+                <p>Voto: <span className="stars">{renderVote (data.vote_average)}</span></p>
             </div>
         </li>
         </>

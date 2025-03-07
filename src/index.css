@@ -1,0 +1,58 @@
+*{
+    background-color: #2B3035;
+}
+
+.navbar-brand{
+    color: red;
+}
+
+h2{
+    color: white;
+}
+
+p{
+    color: white;
+}
+
+
+h3{
+    color: white;
+}
+
+.language-flag{
+    width: 24px;
+    height: 16px;
+    vertical-align: middle;
+}
+
+ul{
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card{
+    width: 250px;
+    height: auto;
+    box-sizing: border-box;
+    background-color: #2B3035;
+    border-color: white ;
+    
+}
+
+.poster{
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.star-filled {
+    color: goldenrod;
+}
