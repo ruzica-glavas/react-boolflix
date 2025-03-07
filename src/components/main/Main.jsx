@@ -1,5 +1,6 @@
 import {useGlobalContext} from "../../contexts/GlobalContext"
-import ReactCountryFlag from "react-country-flag"
+import ResultsList from "./ResultsList"
+
 
 
 
@@ -7,14 +8,14 @@ const Main = () => {
 
     const {movies, tvs} = useGlobalContext()
 
-    const imgUrl = "https://image.tmdb.org/t/p/";
-    const imgSize = "w45";
+   {/* const imgUrl = "https://image.tmdb.org/t/p/";
+    const imgSize = "w45";*/} 
     
 
 
-    const HandleStars = (vote) => Math.ceil (vote/2)
+    //const HandleStars = (vote) => Math.ceil (vote/2)
 
-    const HandleFlag = {
+   {/* const HandleFlag = {
         
             en: "GB",
             it: "IT",
@@ -28,12 +29,15 @@ const Main = () => {
             ko: "KR"
         
     }
-    
+    */} 
+
     return (
         <>
         <main>
             <h2>Movies</h2>
-            <ul>
+
+            <ResultsList type="movies" items={movies}/>
+           {/*<ul>
                 {
                     movies.map (element => {
                         return(
@@ -51,10 +55,12 @@ const Main = () => {
                         )
                     })
                 }
-            </ul>
+            </ul> */} 
 
             <h2>Series</h2>
-            <ul>
+
+            <ResultsList type="tvs" items={tvs}/>
+            {/*<ul>
                 {
                     tvs.map (element => {
                         return(
@@ -70,7 +76,8 @@ const Main = () => {
                         )
                     })
                 }
-            </ul>
+            </ul> */}
+            
         </main>
         </>
     )
